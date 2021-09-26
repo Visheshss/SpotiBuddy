@@ -1,0 +1,58 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+}
+
+td, th {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.title {
+	font-size: 25px;
+	color: green;
+}
+
+#nav {
+    list-style-type: none;
+    margin: -8px;
+    padding: 0;
+    overflow: hidden;
+    background-color: green;
+}
+  
+.nav {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+  
+.nav:hover:not(.active) {
+    background-color: #145cba;
+}
+  
+.active {
+    background-color: #4CAF50;
+}
+
+#navtitle {
+    float: right;
+    position: relative;
+    top: 11px;
+    right: 20px;
+    font-size: 25px;
+}
+
+#navtitle:hover:not(.active) {
+	background-color: #17ade8;
+}

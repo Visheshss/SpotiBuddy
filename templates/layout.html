@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+	<html> 
+		<head>
+			<title>SpotiBuddy</title>
+			<link rel="stylesheet" type="text/css" href="styles.css">
+			<meta charset="utf-8">
+		</head>
+		<body>
+			<header>
+				<ul id='nav'>
+					<li class='nav'><a class='nav' href='/home'>Home</a></li>
+					{% if check == None %}
+						<li class='nav'><a class='nav' href='/'>Login</a></li>
+					{% else %}
+						<li class='nav'><a class='nav' href='/getTracks'>Top Tracks</a></li>
+						<li class='nav'><a class='nav' href='/getArtists'>Top Artists</a></li>
+						<li class='nav'><a class='nav' href='/seeds'>Make Playlist</a></li>
+						<li class='nav'><a class='nav' href='/logout'>Logout</a></li>
+					{% endif %}					
+					<li class='nav' id='navtitle'>SpotiBuddy</li>
+				</ul>
+			</header>
+			<h1>{% block heading %}{% endblock %}</h1>
+			{% block body %}
+			{% endblock %}
+
+			<style type="text/css">
+				#nav {
+				    list-style-type: none;
+				    margin: -8px;
+				    padding: 0;
+				    overflow: hidden;
+				    background-color: green;
+				}
+				  
+				.nav {
+				    float: left;
+				    display: block;
+				    color: white;
+				    text-align: center;
+				    padding: 14px 16px;
+				    text-decoration: none;
+				    font-size: 20px;
+				}
+				  
+				.nav:hover:not(.active) {
+				    background-color: #145cba;
+				}
+				  
+				.active {
+				    background-color: #4CAF50;
+				}
+
+				#navtitle {
+				    float: right;
+				    position: relative;
+				    top: 11px;
+				    right: 20px;
+				    font-size: 25px;
+				}
+
+				#navtitle:hover:not(.active) {
+					background-color: #17ade8;
+				}
+			</style>
+
+		</body>
+	</html>

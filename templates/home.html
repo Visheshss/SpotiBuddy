@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+<center>
+	<h1>Welcome to SpotiBuddy!</h1>
+	{% if check == None %}
+		<form action="{{ url_for('login') }}">
+			<button>Login</button>
+		</form>
+	{% endif %}
+</center>
+{% endblock %}

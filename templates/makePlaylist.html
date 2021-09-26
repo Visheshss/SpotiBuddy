@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Top Tracks
+{% endblock %}
+
+
+{% block body %}
+
+	{% if seed_type == 'artists' %}
+		<center>
+			<form action="/displayPlaylist" method='post'>
+				<table>
+				    <tbody>
+				    	<input type="hidden" value='artist', name='types'>
+							{% for seed in seeds %}		
+							    <tr>
+							    	<td><input type="checkbox" name='tracks' value={{seeds[loop.index0]}}></td>
+							    	<td><img src={{artist_covers[loop.index0]}}></td>
+							    	<td><h3>{{names[loop.index0]}}</h3></td>
+							    </tr>
+				    		{% endfor %}
+					</tbody>
+				</table>
+				<input type="text" name="playlist-title" placeholder="Title your playlist.">
+				<input type="submit">
+			</form>
+		</center>
+	{% elif seed_type == 'tracks' %}
+		<center>
+			<form action="/displayPlaylist" method='post'>
+				<table>
+				    <tbody>
+				    	<input type="hidden" value='track', name='types'>
+							{% for seed in seeds %}		
+							    <tr>
+							    	<td><input type="checkbox" name='tracks' value={{seeds[loop.index0]}}></td>
+							    	<td><img src={{album_covers[loop.index0]}}></td>
+							    	<td><h3>{{track_titles[loop.index0]}}</h3><h3>{{artists[loop.index0]}}</h3></td>
+							    </tr>
+				    		{% endfor %}
+					</tbody>
+				</table>
+				<input type="text" name="playlist-title" placeholder="Title your playlist.">
+				<input type="submit">
+			</form>
+		</center>
+	{% elif seed_type == 'genres' %}
+		<center>
+			<form action="/displayPlaylist" method='post'>
+				<table>
+				    <tbody>
+				    	<input type="hidden" value='genre', name='types'>
+							{% for seed in seeds %}		
+							    <tr>
+							    	<td><input type="checkbox" name='tracks' value={{seeds[loop.index0]}}></td>
+							    	<td><h3>{{seed}}</h3></td>
+							    </tr>
+				    		{% endfor %}
+					</tbody>
+				</table>
+				<input type="text" name="playlist-title" placeholder="Title your playlist.">
+				<input type="submit">
+			</form>
+		</center>
+	{% endif %}
+
+	<style type="text/css">
+		table {
+	    font-family: arial, sans-serif;
+	    border-collapse: collapse;
+	    width: 20%;
+		}
+
+		td, th {
+		    border: 0px solid #dddddd;
+		    text-align: left;
+		    padding: 8px;
+		}
+
+		tr:nth-child(even) {
+		    background-color: #dddddd;
+		}
+
+		.title {
+			font-size: 25px;
+			color: green;
+		}
+
+		input[type='checkbox'] {
+		    -webkit-appearance:none;
+		    width:30px;
+		    height:30px;
+		    background:white;
+		    border-radius:5px;
+		    border:2px solid #555;
+		}
+		input[type='checkbox']:checked {
+		    background: green;
+		}
+		input[type='submit'] {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			background-color: white; 
+			color: black; 
+			border: 2px solid #4CAF50;
+			width: 200px;
+		}
+
+		input[type='submit']:hover {
+		  	background-color: #4CAF50;
+		  	color: white;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$('input[type=checkbox]').on('change', function (e) {
+		    if ($('input[type=checkbox]:checked').length > 5) {
+		        $(this).prop('checked', false);
+		        alert("You can only select up to 5.");
+		    }
+		});
+	</script>
+
+{% endblock %}

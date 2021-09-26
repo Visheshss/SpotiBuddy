@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Top Artists
+{% endblock %}
+
+
+{% block body %}
+
+<center>
+	<h1>Your Top Artists</h1>
+	<form action="{{ url_for('get_all_artists') }}", method='post'>
+		<input type='submit' name='submit_button' value="Last Month">
+		<input type='submit' name='submit_button' value="Last 6 Months">
+		<input type='submit' name='submit_button' value="All Time">
+	</form>
+</center>
+
+<center>
+	<table>
+	    <tbody>
+			{% for name in names%}		
+			    <tr>
+					<td class='cover'><img src="{{artist_covers[loop.index0]}}"></td>
+					<td class='words'>
+						<a class='title' href="{{urls[loop.index0]}}">{{names[loop.index0]}}</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</center>
+
+<style type="text/css">
+	table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+	}
+
+	td, th {
+	    border: 0px solid #dddddd;
+	    text-align: left;
+	    padding: 8px;
+	    width: 50%;
+	}
+
+	tr:nth-child(even) {
+	    background-color: #dddddd;
+	}
+
+	.title {
+		font-size: 40px;
+		color: green;
+	}
+
+	.cover {
+		column-width: 350px;
+	}
+
+	.words {
+		column-width: 350px;
+	}
+
+	img {
+		width:325px;
+		height: 325px;
+	}
+</style>
+
+{% endblock %}

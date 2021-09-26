@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Playlist
+{% endblock %}
+
+
+{% block body %}
+
+<center>
+	<h1>What do you want to base your playlist off of?</h1>
+	<form action="{{ url_for('seed_type_selection') }}", method='post'>
+		<input type='submit' name='seed_button' value="Top Tracks">
+		<input type='submit' name='seed_button' value="Top Artists">
+		<input type='submit' name='seed_button' value="Top Genres">
+	</form>
+</center>
+
+<style type="text/css">
+	
+</style>
+
+{% endblock %}
