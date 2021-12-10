@@ -10,9 +10,9 @@ Top Artists
 <center>
 	<h1>Your Top Artists</h1>
 	<form action="{{ url_for('get_all_artists') }}", method='post'>
-		<input type='submit' name='submit_button' value="Last Month">
-		<input type='submit' name='submit_button' value="Last 6 Months">
-		<input type='submit' name='submit_button' value="All Time">
+		<input type='submit' name='submit_button' value="Last Month" class='time_period'>
+		<input type='submit' name='submit_button' value="Last 6 Months" class='time_period'>
+		<input type='submit' name='submit_button' value="All Time" class='time_period'>
 	</form>
 </center>
 
@@ -33,14 +33,14 @@ Top Artists
 
 <style type="text/css">
 	table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 20%;
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 20%;
 	}
 
 	td, th {
 	    border: 0px solid #dddddd;
-	    text-align: left;
+	    text-align: center;
 	    padding: 8px;
 	    width: 50%;
 	}
@@ -65,6 +65,29 @@ Top Artists
 	img {
 		width:325px;
 		height: 325px;
+	}
+
+	.time_period {
+		background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			background-color: white; 
+			color: black; 
+			border: 2px solid #4CAF50;
+			width: 200px;
+	}
+
+	.time_period[type='submit']:hover {
+		  	background-color: #4CAF50;
+		  	color: white;
 	}
 </style>
 

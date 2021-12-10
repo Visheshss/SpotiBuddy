@@ -7,11 +7,103 @@ Home
 {% block body %}
 
 <center>
+	<br>
 	<h1>Welcome to SpotiBuddy!</h1>
 	{% if check == None %}
 		<form action="{{ url_for('login') }}">
 			<button>Login</button>
 		</form>
+	{% else %}
+	<br><br>
+		<table>
+			<tbody>		
+					<tr>
+						<td class='prompts'>To view your most played tracks over various time periods:</td>
+						<td class='prompts'>To view your most played artists over various time periods:</td>
+						<!-- <td class='prompts'>If you want a playlist full of fresh, new music:</td> -->
+					</tr>
+					<tr>
+						<td><a href='/getTracks'><input type='submit' name='submit_button' value="Top Tracks" class='feature'></a></td>
+						<td><a href='/getArtists'><input type='submit' name='submit_button' value="Top Artists" class='feature'></a></td>
+						<!-- <td><a href='/seeds'><input type='submit' name='submit_button' value="Make a Playlist" class='feature'></a></td> -->
+					</tr>
+			</tbody>
+		</table>
+		<br><br><br>
+		<table>
+			<tbody>
+				<tr>
+					<td class='prompts'>If you want a playlist full of fresh, new music:</td>
+				</tr>
+				<tr>
+					<td><a href='/seeds'><input type='submit' name='submit_button' value="Make a Playlist" class='feature'></a></td>
+				</tr>
+			</tbody>
+		</table>
 	{% endif %}
+
+
 </center>
+
+<style>
+	td {
+		text-align: center;
+	}
+	.prompts {
+		font-size: 25px;
+		font-family: arial, sans-serif;
+	}
+
+	h1 {
+		font-family: arial, sans-serif;
+		font-size: 40px;
+	}
+
+	button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+		background-color: white; 
+		color: black; 
+		border: 2px solid #4CAF50;
+		width: 300px;
+	}
+
+	button:hover {
+		background-color: #4CAF50;
+		color: white;
+	}
+
+	.feature {
+		background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 16px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			background-color: white; 
+			color: black; 
+			border: 2px solid #4CAF50;
+			width: 400px;
+			height: 70px;
+	}
+
+	.feature[type='submit']:hover {
+		  	background-color: #4CAF50;
+		  	color: white;
+	}
+</style>
 {% endblock %}

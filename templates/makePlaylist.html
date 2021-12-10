@@ -21,9 +21,9 @@ Top Tracks
 							    </tr>
 				    		{% endfor %}
 					</tbody>
-				</table>
-				<input type="text" name="playlist-title" placeholder="Title your playlist.">
-				<input type="submit">
+				</table><br>
+				<input type="text" name="playlist-title" placeholder="Title your playlist." class='titleplaylist'><br><br><br>
+				<input type="submit"><br><br><br>
 			</form>
 		</center>
 	{% elif seed_type == 'tracks' %}
@@ -40,9 +40,9 @@ Top Tracks
 							    </tr>
 				    		{% endfor %}
 					</tbody>
-				</table>
-				<input type="text" name="playlist-title" placeholder="Title your playlist.">
-				<input type="submit">
+				</table><br>
+				<input type="text" name="playlist-title" placeholder="Title your playlist." class='titleplaylist'><br><br><br>				
+				<input type="submit"><br><br><br>
 			</form>
 		</center>
 	{% elif seed_type == 'genres' %}
@@ -58,33 +58,30 @@ Top Tracks
 							    </tr>
 				    		{% endfor %}
 					</tbody>
-				</table>
-				<input type="text" name="playlist-title" placeholder="Title your playlist.">
-				<input type="submit">
+				</table><br>
+				<input type="text" name="playlist-title" placeholder="Title your playlist." class='titleplaylist'><br><br><br>
+				<input type="submit"><br><br><br>
 			</form>
 		</center>
 	{% endif %}
 
 	<style type="text/css">
 		table {
-	    font-family: arial, sans-serif;
-	    border-collapse: collapse;
-	    width: 20%;
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 50%;
+			font-size: 30px;
+			color: green;
 		}
 
 		td, th {
 		    border: 0px solid #dddddd;
-		    text-align: left;
+		    text-align: center;
 		    padding: 8px;
 		}
 
 		tr:nth-child(even) {
 		    background-color: #dddddd;
-		}
-
-		.title {
-			font-size: 25px;
-			color: green;
 		}
 
 		input[type='checkbox'] {
@@ -96,8 +93,9 @@ Top Tracks
 		    border:2px solid #555;
 		}
 		input[type='checkbox']:checked {
-		    background: green;
+		    background: darkslategray;
 		}
+		
 		input[type='submit'] {
 			background-color: #4CAF50;
 			border: none;
@@ -113,12 +111,20 @@ Top Tracks
 			background-color: white; 
 			color: black; 
 			border: 2px solid #4CAF50;
-			width: 200px;
+			width: 500px;
 		}
 
 		input[type='submit']:hover {
 		  	background-color: #4CAF50;
 		  	color: white;
+		}
+
+		.titleplaylist[type=text] {
+			border: 2px solid darkolivegreen;
+			border-radius: 4px;
+			width: 300px;
+			height: 30px;
+			text-align: center;
 		}
 	</style>
 
